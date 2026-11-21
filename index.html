@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#090d16" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="App iPhone" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Versione iPhone</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card: #111827;
+      --card-alt: #182234;
+      --text: #f9fafb;
+      --subtext: #9ca3af;
+      --accent: #22d3ee;
+      --accent-ink: #042f2e;
+      --line: rgba(255, 255, 255, 0.1);
+      --r: 18px;
+      --st: env(safe-area-inset-top, 0px);
+      --sb: env(safe-area-inset-bottom, 0px);
+      --sl: env(safe-area-inset-left, 0px);
+      --sr: env(safe-area-inset-right, 0px);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-width: 100%;
+      min-height: 100dvh;
+      overflow-x: clip;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+      min-height: 100dvh;
+      padding-top: calc(var(--st) + 12px);
+      padding-bottom: calc(var(--sb) + 86px);
+      padding-left: calc(var(--sl) + 16px);
+      padding-right: calc(var(--sr) + 16px);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 14px 16px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+    }
+
+    .title {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(34, 211, 238, 0.14);
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .box {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 16px;
+    }
+
+    .box-title {
+      margin: 0 0 6px 0;
+      font-size: 1.02rem;
+      font-weight: 650;
+    }
+
+    .box-desc {
+      margin: 0 0 14px 0;
+      font-size: 0.92rem;
+      line-height: 1.48;
+      color: var(--subtext);
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 13px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-ghost {
+      background: var(--card-alt);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .dock-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      background: rgba(9, 13, 22, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--line);
+      padding-top: 8px;
+      padding-bottom: calc(var(--sb) + 8px);
+      padding-left: calc(var(--sl) + 12px);
+      padding-right: calc(var(--sr) + 12px);
+      z-index: 40;
+    }
+
+    .tab {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 11px;
+      color: var(--subtext);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .tab.active {
+      color: var(--accent);
+      background: rgba(34, 211, 238, 0.12);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="title">Progetto iPhone</h1>
+      <span class="tag">iOS</span>
+    </header>
+
+    <main class="stack">
+      <section class="box">
+        <h2 class="box-title">Interfaccia pensata per iPhone</h2>
+        <p class="box-desc">
+          Colonna singola, aree sicure iOS rispettate, altezza dinamica 100dvh e nessun taglio laterale.
+        </p>
+        <button class="btn" type="button" id="mainBtn">Azione principale</button>
+      </section>
+
+      <section class="box">
+        <h2 class="box-title">Sezione contenuti</h2>
+        <p class="box-desc">
+          Qui puoi inserire i tuoi elementi o moduli principali senza griglie strette da desktop.
+        </p>
+        <button class="btn btn-ghost" type="button">Apri sezione</button>
+      </section>
+    </main>
+
+    <nav class="dock-bar" aria-label="Navigazione iPhone">
+      <a class="tab active" href="#home">Home</a>
+      <a class="tab" href="#item1">Sezione 1</a>
+      <a class="tab" href="#item2">Sezione 2</a>
+    </nav>
+  </div>
+
+  <script>
+    document.getElementById("mainBtn").addEventListener("click", function () {
+      const tag = document.querySelector(".tag");
+      if (tag) tag.textContent = "OK";
+    });
+  </script>
+</body>
+</html>
